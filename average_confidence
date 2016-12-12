@@ -1,0 +1,29 @@
+# Use the file name mbox-short.txt as the file name
+fname = raw_input("Enter file name: ")
+count = 0
+total = 0
+
+fh = open(fname)
+for line in fh:
+    if not line.startswith("X-DSPAM-Confidence:") : continue
+    count = count + 1
+    
+    # strip of the trailing white space
+    line = line.rstrip()
+    
+    # strip off all but the last 6 characters
+    line = line[21:27]
+    line = float(line)
+    total = total + line
+    
+    # convert this string to a float
+    # add up values of all the floats found
+    
+    #print line,count
+    
+# print the average by dividing the sum by the count
+
+#result = total/count
+result = total/count
+
+print 'Average spam confidence:',result
